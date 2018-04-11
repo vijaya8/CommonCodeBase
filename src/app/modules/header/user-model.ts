@@ -3,6 +3,7 @@ export class UserModel {
   user_name: string;
   password: string;
   email: string;
+  deparment: string;
 
   static fromJson(json: any): UserModel {
     const user = new UserModel();
@@ -11,6 +12,7 @@ export class UserModel {
     user.user_name = json.user_name || '';
     user.password = json.password || '';
     user.email = json.email || '';
+    user.deparment = json.deparment || '';
 
     return user;
   }

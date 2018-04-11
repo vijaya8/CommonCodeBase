@@ -25,3 +25,25 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+#####This process for export module ans services and created as npm package.
+
+
+1.Create two files ng-packagr and public_api.ts
+
+2.include exported files in public_api.ts.
+
+3.Add script in package.json file 
+
+scripts : {
+ "packagr": "ng-packagr -p ng-package.json".
+}
+
+4.using ng-packagr build the Cretaed module/service/model. It will create dis folder by run as 'npm run packagr'
+ 
+5.moved to dist folder in terminal(cd dist) and run 'npm pack' it will pack and generate .zip file in dist.
+
+
+
+
+

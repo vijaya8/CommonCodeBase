@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderService} from '../header.service';
-
+import {UserModel} from './user-model';
 
 @Component({
   selector: 'app-header',
@@ -8,21 +8,17 @@ import {HeaderService} from '../header.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  usersData: any;
+  usersData: UserModel;
 
   constructor(private headerService: HeaderService) {
   }
 
 
   ngOnInit() {
-    console.log('this is in ngOn');
     this.headerService.userLogin()
-      .subscribe((resultData => {
-        console.log('usersData', resultData);
-        this.usersData = JSON.stringify(resultData);
-        localStorage.setItem('loginUser', this.usersData);
-      }));
-
+      .subscribe((resultData) => {
+        localStorage.setItem('loginUser', JSON.stringify(resultData));
+      });
   }
 
 }
